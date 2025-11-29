@@ -5,6 +5,7 @@
  * +renderError(message: string)　：エラー表示時のメソッド
  */
 
+
 export interface IDisplay{
     render(text: string):void;
     renderError(message: string):void;

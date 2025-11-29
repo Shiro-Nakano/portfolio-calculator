@@ -5,7 +5,12 @@
  * 【Public】
  * +resolve (target EventTarget)   KeyToken | null  
  */
+
+
+// クラスのimport
+// ↓入力したキーの引用のため
 import type { KeyToken } from "./TypeAlias/KeyToken"
+
 
 export class KeyMapper{
     // 

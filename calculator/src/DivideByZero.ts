@@ -3,7 +3,8 @@
  * 【Public】
  * message: string　　0で割った時のエラーを正しく動作させるメソッド
  */
-// ⭐️EvaluatorとConfigをどうやって繋げている？
+
+
 export class DivideByZero extends Error{
     public message : string;
 

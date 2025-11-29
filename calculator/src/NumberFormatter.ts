@@ -6,7 +6,13 @@
  * 【Private】
  * -maxDigits                     number    :認められる最大桁数（仕様書：８行）
  */
+
+
+// クラスのimport
+// ↓最大桁数の引用のため
 import { Config } from "./Config";
+
+
 export class NumberFormatter {
     // privateのプロパティ
     /** 

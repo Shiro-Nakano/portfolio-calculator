@@ -5,6 +5,8 @@
  * +renderError(message: string)　：エラー表示時のメソッド
  */
 
+// クラスのimport
+// ↓ディスプレイ周りのインターフェースを取得
 import type{ IDisplay } from "./IDisplay";
 
 export class DomDisplay implements IDisplay{
@@ -35,6 +37,9 @@ export class DomDisplay implements IDisplay{
         this.el.textContent = message;
         // ⭐️コンソールエラーがいるか確認
         console.error("入力にエラーがあります");
+        
+    }
+    public renderHistory(text: string): void {
         
     }
 }
