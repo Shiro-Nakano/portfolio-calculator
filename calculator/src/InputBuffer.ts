@@ -5,6 +5,7 @@
  * +pushDecimal()          void    :小数点を追加するメソッド
  * +clear()                void    :『C』押下時に初期状態に戻すメソッド
  * +toNumber()             number  :現在入力された文字列を数値として戻すメソッド
+ * +toString()
  * +isEmpty()              boolean :入力がないか確認するメソッド
  * +digitCount()           number  :小数点を除いた数字の桁数を返すメソッド
  * 【Private】
@@ -43,7 +44,7 @@ export class InputBuffer {
      */
     public pushDigit(d: number): void {
         // 引数dが0~9までの数字の場合
-        if (d >= 0 && d <= 9) {
+        if (d < 0 || d > 9) {
             return;
         }
         // 桁数制限のチェック
@@ -97,6 +98,12 @@ export class InputBuffer {
         else {
             return Number(this.value);
         }
+    }
+    /** 
+     * @returns {string} 
+     */
+    public toString(): string {
+        return this.value;
     }
     /** 
      * @returns {boolean} 空欄かの判定
