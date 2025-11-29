@@ -1,5 +1,5 @@
 /** 
- * クラス　IDisplay:ディスプレイ表示
+ * クラス　DomDisplay               ディスプレイ周りのDom
  * 【Public】
  * +render(text: string)　　　　　　：途中式や入力時の数字の表示メソッド
  * +renderError(message: string)　：エラー表示時のメソッド
