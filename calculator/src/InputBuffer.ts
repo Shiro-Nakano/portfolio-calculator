@@ -1,5 +1,5 @@
 /** 
- * クラス　InputBuffer : ユーザーが入力した文字を異時事的に保持・正しい数値文字列で返し組み立てるクラス
+ * クラス　InputBuffer　　　　　　　　 : ユーザーが入力した文字を異時事的に保持・正しい数値文字列で返し組み立てるクラス
  * 【Public】
  * +pushDigit(d: number)   void    :数字を１行ずつ追加するメソッド
  * +pushDecimal()          void    :小数点を追加するメソッド
@@ -11,6 +11,8 @@
  * -value                  string  :入力中の数字を保持するための文字列の値
  * -maxDigits              number  :認められる最大桁数（仕様書：８行）
  */
+
+// 最大桁数の引用のため
 import { Config } from "./Config";
 
 export class InputBuffer {
