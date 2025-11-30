@@ -49,14 +49,14 @@ export class KeyMapper{
             return null;
         }
         // クリックされた要素（key）の「表示テキスト」を取り出す(.!→nullでもエラーにしない)
-        const dataKey = target.textContent?.trim();
+        const key = target.dataset.value;
         // keyでない場合：nullを返す
-        if (!dataKey){
+        if (!key){
             return null;
         }
         // keyの場合：keyMapperから対応するKeyTokenを取り出す
         else{
-            return this.keyMap.get(dataKey)?? null;
+            return this.keyMap.get(key)?? null;
         }
     }
 }
