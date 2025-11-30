@@ -47,7 +47,7 @@ export class Calculator {
     ) {    
             this.display.render(this.buffer.toString()
         );
-    }
+}
 
   // KeyToken→Operatorに変更
     private operator(token: KeyToken): Operation | null {
@@ -95,9 +95,15 @@ export class Calculator {
     // 各ハンドラーの具体的な動作内容
 
     /** 
-     * 数字キー 押下時
+     * 数字キー 押下時の処理
      */
     public handleDigit(d: number): void {
+        // 例外処理：『Error』表示後に数字ボタンを押下すると初期化される。
+        if(this.state === CalcState.Error){
+            this.buffer.clear();
+            this.state = CalcState.InputtingFirst;
+        }
+        // 通常処理：
         if (this.state === CalcState.ResultShown) {
             this.buffer.clear();
             this.left = null;
@@ -141,25 +147,38 @@ export class Calculator {
     
 
     /** 
-     * イコールキー押下時
+     * イコールキー押下時の処理
      */
     public handleEqual(): void {
         if (!this.operatorType || this.left === null) return;
 
         const right = this.buffer.toNumber();
-        const result = this.evaluator.compute(this.left, this.operatorType, right);
+        // 例外処理：割り算0除算時のエラー
+        try{
+            const result = this.evaluator.compute(this.left, this.operatorType, right);
 
-        this.display.render(this.formatter.formatForDisplay(result));
-        this.left = result;
-        this.state = CalcState.ResultShown;
+            this.display.render(this.formatter.formatForDisplay(result));
+            this.left = result;
+            this.state = CalcState.ResultShown;
+        }
+        catch(error){
+            // エラー時の表示
+            this.display.render("Error");
+            this.state = CalcState.Error;
+            // バッファのリセット
+            this.buffer.clear();
+        }
     }
 
     /** 
-     * クリアーキー押下時
+     * クリアーキー押下時の処理
      */
     public handleClear(): void {
+        // バッファの初期化
         this.buffer.clear();
+        // 『０』を表示
         this.display.render("0");
+        // ready状態に移行
         this.state = CalcState.ready;
     }
 }
