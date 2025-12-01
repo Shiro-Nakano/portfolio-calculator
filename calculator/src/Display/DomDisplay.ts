@@ -71,6 +71,6 @@ export class DomDisplay implements IDisplay{
      * @return {void}　　　　　　　
      */
         public clearHistory(): void {
-            this.historyEl.textContent = "0";
+            this.historyEl.textContent = "";
         }
 }
