@@ -15,6 +15,7 @@ import type{ IDisplay } from "./IDisplay";
 
 export class DomDisplay implements IDisplay{
     // 【Private】
+    // メンバー変数:プロパティがHTMLDivElementを持つという型の宣言
     private historyEl: HTMLDivElement;
     private resultEl: HTMLDivElement;
 
@@ -23,17 +24,17 @@ export class DomDisplay implements IDisplay{
     // HTML(ディスプレイ計算履歴・結果）のDom取得
     const historyEl = document.getElementById("history")as HTMLDivElement;
     const resultEl = document.getElementById("result-display") as HTMLDivElement;
-
-    // 例外処理:null時エラーケース
+    // 例外処理　:null時エラーケース
     if(!resultEl || !historyEl){
         throw new Error("ディスプレイに表示できるものがありません");
     }
     // 通常処理
     else{
+        // 各プロパティ内に値を代入
         this.historyEl = historyEl;
         this.resultEl = resultEl;
     }
-    }
+}
 
     // 【Public】
     /** 
@@ -52,8 +53,7 @@ export class DomDisplay implements IDisplay{
      */
     public renderError(message: string): void {
         this.resultEl.textContent = message;
-        // ⭐️コンソールエラーがいるか確認
-        console.error("入力にエラーがあります");
+        console.error("エラー発生");
         
     }
 
