@@ -1,3 +1,8 @@
+/** 
+ * 型エイリアス　KeyToken
+ * 電卓のキー内容をToken化
+ */
+
 export type KeyToken =
 | "0"
 | "1"
