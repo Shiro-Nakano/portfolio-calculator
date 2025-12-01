@@ -7,6 +7,7 @@
 
 
 export class Config{
+    // 共通・不変の内容なのでstatic+readonly
     static readonly MAX_DIGITS: number = 8;
     static readonly ERROR_MESSAGE: string = "エラー";
 }
