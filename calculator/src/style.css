@@ -21,8 +21,16 @@ body{
     margin-bottom: 10px;
     border: none;
     border-radius: 3%;
+
+}
+#history{
+    font-size: 15px;
+    text-align: left;
+}
+#result-display{
     font-size: 30px;
     text-align: right;
+    padding-top: 10px;
 }
 button{
     width: 60px;
