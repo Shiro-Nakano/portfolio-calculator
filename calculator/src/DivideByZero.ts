@@ -13,7 +13,7 @@ export class DivideByZero extends Error{
         super(message);
         // エラーメッセージを代入
         this.message = message;
-        // エラー名「０除算」の設定
-        this.name = "０除算";
+        // エラー名「０除算は不可」の設定
+        this.name = "０除算は不可";
     }
 }
