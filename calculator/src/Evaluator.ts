@@ -7,6 +7,8 @@
 // クラスのimport
 // ↓演算子の引用のため
 import { Operation } from "./Enums/Operation";
+// ↓エラーの引用のため
+import { DivideByZero } from "./DivideByZero";
 
 
 export class Evaluator{
@@ -20,7 +22,7 @@ export class Evaluator{
                 return a * b;
             case Operation.divide:
                 if(b === 0){
-                    throw new Error("０除算は不可")
+                    throw new DivideByZero("０除算は不可")
                 }
                 return a / b;
         }
