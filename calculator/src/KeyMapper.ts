@@ -1,9 +1,9 @@
 /** 
- * クラス：KeyMapper          : ユーザーの押下したボタンをKeyTokenへ変換
+ * クラス：KeyMapper          : ユーザーの押下したボタンをのDom要素から対応するKeyTokenへ変換
  * 【Private】
- * -keyMap: Map    string    :
+ * -keyMap: Map    string    :UI上の表示文字とKeyTokenの対応
  * 【Public】
- * +resolve (target EventTarget)   KeyToken | null  
+ * +resolve (target EventTarget)   KeyToken | null  ボタンクリックイベントからKeyTokenの取得（以外はnull）
  */
 
 
@@ -48,8 +48,12 @@ export class KeyMapper{
         if (!(target instanceof HTMLElement)){
             return null;
         }
-        // クリックされた要素（key）の「表示テキスト」を取り出す(.!→nullでもエラーにしない)
-        const key = target.dataset.value;
+        // dataset.value を優先
+        let key = target.dataset.value?.trim() ?? null;
+        // dataset.value がなければ textContent を利用
+        if (!key) {
+            key = target.textContent?.trim() ?? null;
+        }
         // keyでない場合：nullを返す
         if (!key){
             return null;
