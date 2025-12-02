@@ -1,7 +1,7 @@
 /** 
- * クラス　DivideByZero
+ * クラス　DivideByZero    :0除算時のエラー
  * 【Public】
- * message: string　　0で割った時のエラーを正しく動作させるメソッド
+ * +message: string　   　:0で割った時のエラー内容の値
  */
 
 
@@ -13,7 +13,7 @@ export class DivideByZero extends Error{
         super(message);
         // エラーメッセージを代入
         this.message = message;
-        // エラー名「０除算は不可」の設定
-        this.name = "０除算は不可";
+        // エラー名「０除算」の設定
+        this.name = "０除算";
     }
 }
