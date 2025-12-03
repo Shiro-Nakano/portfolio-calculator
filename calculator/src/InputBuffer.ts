@@ -139,7 +139,7 @@ export class InputBuffer {
      * @returns {boolean} 
      */
     public isEmpty(): boolean {
-        return this.value === "";
+        return this.value === "0" || this.value === "";
     }
     
     /**
