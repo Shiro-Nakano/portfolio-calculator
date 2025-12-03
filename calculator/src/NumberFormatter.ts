@@ -47,9 +47,9 @@ export class NumberFormatter {
         if(this.fits(n)){
             return n.toString();
         }
-        // 桁数が収まらない場合：指数表示（先頭1桁 + 小数点4桁 + e+指数で8桁に合わす）
+        // 桁数が収まらない場合（例：99999999+1=　『1e+8』と表示）
         else{
-            return n.toExponential(4);
+            return n.toExponential(0);
         }
     }
 }
