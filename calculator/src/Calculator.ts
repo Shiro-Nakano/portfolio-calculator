@@ -2,15 +2,15 @@
  * クラス：Calculator :アプリの制御（状態遷移と評価タイミング）
  * 【Private】
  * -state: CalcState              　　　　　 状態の取得
- * -left: number|null              　　　　　左辺の
- * -operator: Operation | null     　　　　　演算子
- * -buffer: InputBuffer            　　　　　バッファー
- * -evaluator: Evaluator           　　　　　計算
+ * -left: number|null              　　　　　左辺の型・初期値の取得
+ * -operator: Operation | null     　　　　　演算子型・初期値の取得
+ * -buffer: InputBuffer            　　　　　バッファーの取得
+ * -evaluator: Evaluator           　　　　　計算のルールの取得
  * -formatter: NumberFormatter     　　　　　表示文字列の形成
- * -display: IDisplay              　　　　　描画
+ * -display: IDisplay              　　　　　画面表示
  * 
  * 【Public】
- * +handle (token: KeyToken).      void.    
+ * +handle (token: KeyToken)       void          
  * +handleDigit(d: number)         void    　 数字ボタン押下時の処理のメソッド
  * +handleDecimalPoint()           void      小数点ボタン押下時の処理のメソッド
  * +handleOperator(op: Operation)  void　　　  演算子ボタン押下時の処理のメソッド
